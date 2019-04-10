@@ -13,7 +13,7 @@ The container includes Composer and some settings optimization for Craft CMS. Th
 Run the container with:
 
 ```
-docker run -d jdsdev/ubuntu-nginx-php
+docker run -p 80:80 -it binaryorigami/ubuntu-nginx-php
 ```
 
 Default web root found at:
