@@ -5,7 +5,7 @@ LABEL maintainer="jonathan@jdsdev.com"
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV PHP_VERSION 7.3
+ENV PHP_VERSION 7.2
 
 # Install Craft Requirements
 RUN apt-get update && apt-get install -yq --no-install-recommends \
