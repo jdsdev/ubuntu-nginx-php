@@ -5,7 +5,7 @@ LABEL maintainer="jonathan@jdsdev.com"
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
-# NOTE: Change PHP version in supervisord.conf as well
+# NOTE: Update PHP version in supervisord.conf and nginx.conf
 ENV PHP_VERSION 7.2
 
 # Install Craft Requirements
