@@ -41,6 +41,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
         php${PHP_VERSION}-gmp \
     && mkdir -p /run/php \
     && chmod -R 755 /run/php \
+    && composer global require hirak/prestissimo --no-plugins --no-scripts \
     && pip install supervisor supervisor-stdout \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
     && rm -rf /var/www/* \
