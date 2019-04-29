@@ -4,9 +4,12 @@
 
 ## Introduction
 
-This is a Dockerfile to build an Ubuntu based container for NGINX and PHP-FPM. The default NGINX configuration is designed for use behind a load balancer.
+This is a Dockerfile to build an Ubuntu based container for NGINX and PHP-FPM. The container includes Composer and some settings optimization for Craft CMS. The default site contains the [Craft Server Check](https://github.com/craftcms/server-check).
 
-The container includes Composer and some settings optimization for Craft CMS. The default site contains the [Craft Server Check](https://github.com/craftcms/server-check).
+| Docker Tag | PHP Version | Composer Version |
+|------------|-------------|------------------|
+| latest     | 7.2         | 1.8.4            |
+| 0.2.2      | 7.2         | 1.8.4            |
 
 ## Getting Started
 
