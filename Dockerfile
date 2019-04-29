@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # NOTE: Update PHP version in supervisord.conf and nginx.conf
 ENV PHP_VERSION 7.2
+ENV COMPOSER_VERSION 1.8.4
 
 # Install Craft Requirements
 RUN apt-get update && apt-get install -yq --no-install-recommends \
@@ -23,7 +24,6 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     && LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y \
     && apt-get update && apt-get install -yq --no-install-recommends \
         nginx \
-        composer \
         php${PHP_VERSION}-fpm \
         php${PHP_VERSION}-cli \
         php${PHP_VERSION}-curl \
@@ -41,7 +41,6 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
         php${PHP_VERSION}-gmp \
     && mkdir -p /run/php \
     && chmod -R 755 /run/php \
-    && composer global require hirak/prestissimo --no-plugins --no-scripts \
     && pip install supervisor supervisor-stdout \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
     && rm -rf /var/www/* \
@@ -70,6 +69,14 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
         /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
     && apt-get autoremove --purge -y software-properties-common \
     && apt-get -y clean && rm -rf /var/lib/apt/lists/*
+
+# Install Composer and Prestissimo to speed up Composer installs
+RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
+  && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
+  && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" \
+  && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} \
+  && rm -rf /tmp/composer-setup.php \
+  && composer global require hirak/prestissimo --no-plugins --no-scripts
 
 # Supervisor config
 COPY supervisord.conf /etc/supervisord.conf
