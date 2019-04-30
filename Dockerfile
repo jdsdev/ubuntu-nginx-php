@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # NOTE: Update PHP version in supervisord.conf and nginx.conf
 ENV PHP_VERSION 7.2
-ENV COMPOSER_VERSION 1.8.4
+ENV COMPOSER_VERSION 1.8.5
 
 # Install Craft Requirements
 RUN apt-get update && apt-get install -yq --no-install-recommends \
