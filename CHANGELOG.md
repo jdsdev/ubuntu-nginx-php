@@ -5,6 +5,7 @@
 - Revert from Nginx PPA to official Ubuntu package
 - Pin Nginx version to 1.15.12
 - Update code and directory structure to work with new version of Nginx
+  - Home directory changed from /var/www to /usr/share/nginx/html
 - Update Composer to 1.8.5
 - Move config files into conf directory
 - Store php config in files rather than modifying with sed in Dockerfile
