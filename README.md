@@ -6,10 +6,11 @@
 
 This is a Dockerfile to build an Ubuntu based container for NGINX and PHP-FPM. The container includes Composer and some settings optimization for Craft CMS. The default site contains the [Craft Server Check](https://github.com/craftcms/server-check).
 
-| Docker Tag | PHP Version | Composer Version |
-|------------|-------------|------------------|
-| latest     | 7.2         | 1.8.4            |
-| 0.2.2      | 7.2         | 1.8.4            |
+| Docker Tag | NGINX Version | PHP Version | Composer Version |
+|------------|---------------|-------------|------------------|
+| latest     | 1.15.12       | 7.2         | 1.8.5            |
+| 0.3.0      | 1.15.12       | 7.2         | 1.8.5            |
+| 0.2.2      | 1.15.8        | 7.2         | 1.8.4            |
 
 ## Getting Started
 
@@ -22,5 +23,5 @@ docker run -p 80:80 -it binaryorigami/ubuntu-nginx-php
 Default web root found at:
 
 ```
-/var/www/web
+/usr/share/nginx/html
 ```

@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:bionic
 
 LABEL maintainer="jonathan@jdsdev.com"
 
@@ -8,11 +8,13 @@ ENV DEBIAN_FRONTEND noninteractive
 # NOTE: Update PHP version in supervisord.conf and nginx.conf
 ENV PHP_VERSION 7.2
 ENV COMPOSER_VERSION 1.8.5
+ENV NGINX_VERSION 1.15.12-1~bionic
 
 # Install Craft Requirements
 RUN apt-get update && apt-get install -yq --no-install-recommends \
         software-properties-common \
         apt-utils \
+        gnupg2 \
         curl \
         zip \
         unzip \
@@ -20,10 +22,12 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
         python-setuptools \
         python-wheel \
         mysql-client \
-    && add-apt-repository ppa:nginx/mainline -y \
     && LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y \
+    && echo "deb http://nginx.org/packages/mainline/ubuntu/ bionic nginx" > /etc/apt/sources.list.d/nginx.list \
+    && curl -o /tmp/nginx_signing.key http://nginx.org/keys/nginx_signing.key \
+    && apt-key add /tmp/nginx_signing.key \
     && apt-get update && apt-get install -yq --no-install-recommends \
-        nginx \
+        nginx=${NGINX_VERSION} \
         php${PHP_VERSION}-fpm \
         php${PHP_VERSION}-cli \
         php${PHP_VERSION}-curl \
@@ -40,53 +44,34 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
         php${PHP_VERSION}-xml \
         php${PHP_VERSION}-gmp \
     && mkdir -p /run/php \
-    && chmod -R 755 /run/php \
+    && chown www-data.www-data /run/php \
     && pip install supervisor supervisor-stdout \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
-    && rm -rf /var/www/* \
-        /etc/nginx/conf.d/* \
-        /etc/nginx/sites-available/* \
-        /etc/nginx/sites-enabled/* \
-    && sed -i \
-        -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" \
-        -e "s/memory_limit\s*=\s*.*/memory_limit = 256M/g" \
-        -e "s/upload_max_filesize\s*=\s*2M/upload_max_filesize = 100M/g" \
-        -e "s/post_max_size\s*=\s*8M/post_max_size = 100M/g" \
-        -e "s/max_execution_time = 30/max_execution_time = 120/g" \
-        -e "s/variables_order = \"GPCS\"/variables_order = \"EGPCS\"/g" \
-        /etc/php/${PHP_VERSION}/fpm/php.ini \
-    && sed -i \
-        -e "s/;daemonize\s*=\s*yes/daemonize = no/g" \
-        /etc/php/${PHP_VERSION}/fpm/php-fpm.conf \
-    && sed -i \
-        -e "s/;catch_workers_output\s*=\s*yes/catch_workers_output = yes/g" \
-        -e "s/pm.max_children = 5/pm.max_children = 4/g" \
-        -e "s/pm.start_servers = 2/pm.start_servers = 3/g" \
-        -e "s/pm.min_spare_servers = 1/pm.min_spare_servers = 2/g" \
-        -e "s/pm.max_spare_servers = 3/pm.max_spare_servers = 4/g" \
-        -e "s/;pm.max_requests = 500/pm.max_requests = 200/g" \
-        -e "s/^;clear_env = no$/clear_env = no/" \
-        /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf \
-    && apt-get autoremove --purge -y software-properties-common \
-    && apt-get -y clean && rm -rf /var/lib/apt/lists/*
+    && apt-get autoremove --purge -y \
+        software-properties-common \
+        gnupg2 \
+    && apt-get -y clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install Composer and Prestissimo to speed up Composer installs
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
   && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" \
   && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} \
-  && rm -rf /tmp/composer-setup.php \
-  && composer global require hirak/prestissimo --no-plugins --no-scripts
+  && composer global require hirak/prestissimo --no-plugins --no-scripts \
+  && rm -rf /tmp/*
+
+# Nginx config
+COPY conf/nginx /etc/nginx
+
+# PHP config
+COPY conf/php /etc/php
 
 # Supervisor config
-COPY supervisord.conf /etc/supervisord.conf
-
-# Override nginx's default config
-COPY default.conf /etc/nginx/sites-available/default.conf
-RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf
+COPY conf/supervisor/supervisord.conf /etc/supervisord.conf
 
 # Override default nginx welcome page
-COPY web /var/www/web
+COPY html /usr/share/nginx/html
 
 # Copy Scripts
 COPY start.sh /start.sh
