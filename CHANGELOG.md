@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 - 2019-05-23
+
+- Add iproute2 package to help with development
+
 ## 0.3.0 - 2019-05-01
 
 - Revert from Nginx PPA to official Ubuntu package

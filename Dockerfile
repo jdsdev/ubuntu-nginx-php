@@ -6,6 +6,7 @@ LABEL maintainer="jonathan@jdsdev.com"
 ENV DEBIAN_FRONTEND noninteractive
 
 # NOTE: Update PHP version in supervisord.conf and nginx.conf
+# `apt-cache madison nginx` to list available versions
 ENV PHP_VERSION 7.2
 ENV COMPOSER_VERSION 1.8.5
 ENV NGINX_VERSION 1.15.12-1~bionic
@@ -18,6 +19,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
         curl \
         zip \
         unzip \
+        iproute2 \
         python-pip \
         python-setuptools \
         python-wheel \
