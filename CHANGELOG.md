@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 - 2019-06-25
+
+- Update Nginx to 1.17.1
+- Update Composer to 1.8.6
+
 ## 0.3.1 - 2019-05-23
 
 - Add iproute2 package to help with development
