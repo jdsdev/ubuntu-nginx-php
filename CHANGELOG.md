@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1 - 2019-08-09
+
+- Update Nginx to 1.17.2
+- Update Composer to 1.9.0
+- Increase PHP `max_execution_time` and `max_input_time`
+
 ## 0.4.0 - 2019-06-25
 
 - Update Nginx to 1.17.1
