@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # `apt-cache madison nginx` to list available versions
 ENV PHP_VERSION 7.2
 ENV COMPOSER_VERSION 1.9.0
-ENV NGINX_VERSION 1.17.2-1~bionic
+ENV NGINX_VERSION 1.17.3-1~bionic
 
 # Install Craft Requirements
 RUN apt-get update && apt-get install -yq --no-install-recommends \

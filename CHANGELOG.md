@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.2 - 2019-08-16
+
+- Update Nginx to 1.17.3
+
 ## 0.4.1 - 2019-08-09
 
 - Update Nginx to 1.17.2
