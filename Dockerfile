@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:18.04
 
 LABEL maintainer="jonathan@jdsdev.com"
 
@@ -6,45 +6,47 @@ LABEL maintainer="jonathan@jdsdev.com"
 ENV DEBIAN_FRONTEND noninteractive
 
 # NOTE: Update PHP version in supervisord.conf and nginx.conf
-# `apt-cache madison nginx` to list available versions
+# `apt-cache madison php7.2` to list available versions
 ENV PHP_VERSION 7.2
+ENV PHP_MINOR_VERSION 7.2.22-1+ubuntu18.04.1+deb.sury.org+1
 ENV COMPOSER_VERSION 1.9.0
+# `apt-cache madison nginx` to list available versions
 ENV NGINX_VERSION 1.17.3-1~bionic
 
 # Install Craft Requirements
 RUN apt-get update && apt-get install -yq --no-install-recommends \
-        software-properties-common \
         apt-utils \
-        gnupg2 \
         curl \
-        zip \
-        unzip \
+        gnupg2 \
         iproute2 \
+        mysql-client \
         python-pip \
         python-setuptools \
         python-wheel \
-        mysql-client \
+        software-properties-common \
+        unzip \
+        zip \
     && LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y \
     && echo "deb http://nginx.org/packages/mainline/ubuntu/ bionic nginx" > /etc/apt/sources.list.d/nginx.list \
     && curl -o /tmp/nginx_signing.key http://nginx.org/keys/nginx_signing.key \
     && apt-key add /tmp/nginx_signing.key \
     && apt-get update && apt-get install -yq --no-install-recommends \
         nginx=${NGINX_VERSION} \
-        php${PHP_VERSION}-fpm \
-        php${PHP_VERSION}-cli \
-        php${PHP_VERSION}-curl \
-        php${PHP_VERSION}-intl \
-        php${PHP_VERSION}-json \
-        php${PHP_VERSION}-opcache \
-        php${PHP_VERSION}-readline \
-        php${PHP_VERSION}-mbstring \
-        php${PHP_VERSION}-mysql \
-        php${PHP_VERSION}-zip \
-        php${PHP_VERSION}-gd \
-        php${PHP_VERSION}-imagick \
-        php${PHP_VERSION}-redis \
-        php${PHP_VERSION}-xml \
-        php${PHP_VERSION}-gmp \
+        php${PHP_VERSION}-cli=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-curl=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-fpm=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-gd=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-gmp=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-intl=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-json=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-mbstring=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-mysql=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-opcache=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-readline=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-xml=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-zip=${PHP_MINOR_VERSION} \
+        php-imagick \
+        php-redis \
     && mkdir -p /run/php \
     && chown www-data.www-data /run/php \
     && pip install supervisor supervisor-stdout \

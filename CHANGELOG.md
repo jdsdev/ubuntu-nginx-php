@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3 - 2019-09-13
+
+- Pin PHP version to 7.2.22
+
 ## 0.4.2 - 2019-08-16
 
 - Update Nginx to 1.17.3
