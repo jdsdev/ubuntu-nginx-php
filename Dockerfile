@@ -8,8 +8,6 @@ ENV DEBIAN_FRONTEND noninteractive
 # NOTE: When updating PHP_VERSION, update in
 # supervisord.conf and nginx.conf as well
 ENV PHP_VERSION 7.2
-# `apt-cache madison php7.2` to list available versions
-ENV PHP_MINOR_VERSION 7.2.23-1+ubuntu18.04.1+deb.sury.org+1
 ENV COMPOSER_VERSION 1.9.0
 # `apt-cache madison nginx` to list available versions
 ENV NGINX_VERSION 1.17.4-1~bionic
@@ -35,19 +33,19 @@ RUN set -x \
     && apt-key add /tmp/nginx_signing.key \
     && apt-get update && apt-get install -yq --no-install-recommends \
         nginx=${NGINX_VERSION} \
-        php${PHP_VERSION}-cli=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-curl=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-fpm=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-gd=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-gmp=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-intl=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-json=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-mbstring=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-mysql=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-opcache=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-readline=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-xml=${PHP_MINOR_VERSION} \
-        php${PHP_VERSION}-zip=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-cli \
+        php${PHP_VERSION}-curl \
+        php${PHP_VERSION}-fpm \
+        php${PHP_VERSION}-gd \
+        php${PHP_VERSION}-gmp \
+        php${PHP_VERSION}-intl \
+        php${PHP_VERSION}-json \
+        php${PHP_VERSION}-mbstring \
+        php${PHP_VERSION}-mysql \
+        php${PHP_VERSION}-opcache \
+        php${PHP_VERSION}-readline \
+        php${PHP_VERSION}-xml \
+        php${PHP_VERSION}-zip \
         php-imagick \
         php-redis \
     && mkdir -p /run/php \
