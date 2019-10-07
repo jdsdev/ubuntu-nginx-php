@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.4 - 2019-10-07
+
+- Update PHP to 7.2.23
+- Update Nginx to 1.17.4
+- Optimize opcache settings
+- Print some Docker RUN commands with `set -x`
+
 ## 0.4.3 - 2019-09-13
 
 - Pin PHP version to 7.2.22

@@ -5,16 +5,19 @@ LABEL maintainer="jonathan@jdsdev.com"
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
-# NOTE: Update PHP version in supervisord.conf and nginx.conf
-# `apt-cache madison php7.2` to list available versions
+# NOTE: When updating PHP_VERSION, update in
+# supervisord.conf and nginx.conf as well
 ENV PHP_VERSION 7.2
-ENV PHP_MINOR_VERSION 7.2.22-1+ubuntu18.04.1+deb.sury.org+1
+# `apt-cache madison php7.2` to list available versions
+ENV PHP_MINOR_VERSION 7.2.23-1+ubuntu18.04.1+deb.sury.org+1
 ENV COMPOSER_VERSION 1.9.0
 # `apt-cache madison nginx` to list available versions
-ENV NGINX_VERSION 1.17.3-1~bionic
+ENV NGINX_VERSION 1.17.4-1~bionic
 
 # Install Craft Requirements
-RUN apt-get update && apt-get install -yq --no-install-recommends \
+RUN set -x \
+    && apt-get update \
+    && apt-get install -yq --no-install-recommends \
         apt-utils \
         curl \
         gnupg2 \
