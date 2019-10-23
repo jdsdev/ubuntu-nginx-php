@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.5 - 2019-10-23
+
+- Update Nginx to 1.17.5
+- Stop pinning PHP version as it often differs between packages
+
 ## 0.4.4 - 2019-10-07
 
 - Update PHP to 7.2.23
