@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.6 - 2019-10-24
+
+- Update PHP to 7.2.24
+
 ## 0.4.5 - 2019-10-23
 
 - Update Nginx to 1.17.5

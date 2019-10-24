@@ -5,8 +5,7 @@ LABEL maintainer="jonathan@jdsdev.com"
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
-# NOTE: When updating PHP_VERSION, update in
-# supervisord.conf and nginx.conf as well
+# NOTE: When updating PHP_VERSION, update in supervisord.conf and nginx.conf as well
 ENV PHP_VERSION 7.2
 ENV COMPOSER_VERSION 1.9.0
 # `apt-cache madison nginx` to list available versions
