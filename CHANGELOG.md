@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.7 - 2019-12-04
+
+- Update PHP to 7.2.25
+- Update Nginx to 1.17.6
+- Update Composer to 1.9.1
+- Restore PHP version pinning as Docker Hub doesn't always update PHP on a fresh build without explicit declaration of minor versions
+
 ## 0.4.6 - 2019-10-24
 
 - Update PHP to 7.2.24
