@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.9 - 2020-01-23
+
+- Update PHP to 7.2.27
+- Update Nginx to 1.17.8
+
 ## 0.4.8 - 2020-01-02
 
 - Update PHP to 7.2.26
