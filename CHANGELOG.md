@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.10 - 2020-02-20
+
+- Update PHP to 7.2.28
+- Update Composer to 1.9.3
+
 ## 0.4.9 - 2020-01-23
 
 - Update PHP to 7.2.27
