@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.11 - 2020-03-11
+
+- Update Nginx to 1.17.9
+- Update Composer to 1.10.0
+
 ## 0.4.10 - 2020-02-20
 
 - Update PHP to 7.2.28
@@ -35,7 +40,7 @@
 
 - Update PHP to 7.2.23
 - Update Nginx to 1.17.4
-- Optimize opcache settings
+- Optimize OPcache settings
 - Print some Docker RUN commands with `set -x`
 
 ## 0.4.3 - 2019-09-13
