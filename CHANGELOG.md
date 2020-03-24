@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.12 - 2020-03-24
+
+- Update PHP to 7.2.29
+- Update Composer to 1.10.1
+
 ## 0.4.11 - 2020-03-11
 
 - Update Nginx to 1.17.9

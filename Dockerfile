@@ -8,8 +8,8 @@ ENV DEBIAN_FRONTEND noninteractive
 # NOTE: When updating PHP_VERSION, update in supervisord.conf and nginx.conf as well
 ENV PHP_VERSION 7.2
 # `apt-cache madison php7.2` to list available versions
-ENV PHP_MINOR_VERSION 7.2.28-3+ubuntu18.04.1+deb.sury.org+1
-ENV COMPOSER_VERSION 1.10.0
+ENV PHP_MINOR_VERSION 7.2.29-1+ubuntu18.04.1+deb.sury.org+1
+ENV COMPOSER_VERSION 1.10.1
 # `apt-cache madison nginx` to list available versions
 ENV NGINX_VERSION 1.17.9-1~bionic
 
