@@ -20,10 +20,15 @@
 	<div class="content">
 		<h3>Description</h3>
 		<p>
-			This script checks if your server configuration meets the requirements for running a Craft CMS installation. It checks if the server is running the right version of PHP, if appropriate PHP extensions have been loaded, and if <code>php.ini</code> file settings are correct.
+			This script checks if your server configuration meets the requirements for running a Craft CMS installation.
+            It checks if the server is running the right version of PHP, if appropriate PHP extensions have been loaded, and if <code>php.ini</code> file settings are correct.
+			If database credentials are supplied in <code>db.php</code>, the script will also performs some database checks as well.
 		</p>
 		<p>
-			There are two kinds of requirements being checked. Mandatory requirements are those that have to be met to allow Craft to work as expected. There are also some optional requirements being checked which will show you a warning when they do not meet. You can use Craft without them but some specific functionality may not be available in this case.
+			There are two kinds of requirements being checked. Mandatory requirements are those that have to be met
+			to allow Craft to work as expected. There are also some optional requirements being checked which will
+			show you a warning when they do not meet. You can use Craft without them but some specific
+			functionality may be not available in this case.
 		</p>
 
 		<h3>Results</h3>
