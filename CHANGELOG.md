@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0 - 2020-04-14
+
+- Update Nginx to 1.17.10
+- Update Composer to 1.10.5
+- Add php7.2-soap for Craft Commerce
+- Add PHP SOAP to server check and display Nginx version
+- Only show last four docker tags in README
+
 ## 0.4.12 - 2020-03-24
 
 - Update PHP to 7.2.29

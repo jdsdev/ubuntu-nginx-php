@@ -4,26 +4,15 @@
 
 ## Introduction
 
-This is a Dockerfile to build an Ubuntu based container for NGINX and PHP-FPM. The container includes Composer and some settings optimization for Craft CMS. The default site contains the [Craft Server Check](https://github.com/craftcms/server-check).
+This is a Dockerfile to build an Ubuntu based container for NGINX and PHP-FPM. The container includes Composer and some settings optimization for Craft CMS and Craft Commerce. The default site contains the [Craft Server Check](https://github.com/craftcms/server-check).
 
 | Docker Tag | NGINX Version | PHP Version | Composer Version |
 |------------|---------------|-------------|------------------|
-| latest     | 1.17.9        | 7.2.29      | 1.10.1           |
+| latest     | 1.17.10       | 7.2.29      | 1.10.5           |
+| 0.5.0      | 1.17.10       | 7.2.29      | 1.10.5           |
 | 0.4.12     | 1.17.9        | 7.2.29      | 1.10.1           |
 | 0.4.11     | 1.17.9        | 7.2.28      | 1.10.0           |
 | 0.4.10     | 1.17.8        | 7.2.28      | 1.9.3            |
-| 0.4.9      | 1.17.8        | 7.2.27      | 1.9.1            |
-| 0.4.8      | 1.17.7        | 7.2.26      | 1.9.1            |
-| 0.4.7      | 1.17.6        | 7.2.25      | 1.9.1            |
-| 0.4.6      | 1.17.5        | ?.?.?       | 1.9.0            |
-| 0.4.5      | 1.17.5        | 7.2.23      | 1.9.0            |
-| 0.4.4      | 1.17.4        | 7.2.23      | 1.9.0            |
-| 0.4.3      | 1.17.3        | 7.2.22      | 1.9.0            |
-| 0.4.2      | 1.17.3        | 7.2         | 1.9.0            |
-| 0.4.1      | 1.17.2        | 7.2         | 1.9.0            |
-| 0.4.0      | 1.17.1        | 7.2         | 1.8.6            |
-| 0.3.0      | 1.15.12       | 7.2         | 1.8.5            |
-| 0.2.2      | 1.15.8        | 7.2         | 1.8.4            |
 
 ## Getting Started
 
@@ -37,4 +26,10 @@ Default web root found at:
 
 ```
 /usr/share/nginx/html
+```
+
+Default logs found at:
+
+```
+/var/log
 ```

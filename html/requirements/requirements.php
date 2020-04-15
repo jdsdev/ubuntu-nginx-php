@@ -162,6 +162,12 @@ $requirements = array_merge($requirements, array(
         'memo' => 'The <a rel="noopener" target="_blank" href="https://secure.php.net/manual/en/book.json.php">JSON</a> extension is required for JSON encoding and decoding.',
     ),
     array(
+        'name' => 'SOAP extension',
+        'mandatory' => true,
+        'condition' => extension_loaded('soap'),
+        'memo' => 'The <a rel="noopener" target="_blank" href="https://secure.php.net/manual/en/book.soap.php">SOAP</a> extension is required to check VAT numbers.',
+    ),
+    array(
         'name' => 'proc_open()',
         'mandatory' => false,
         'condition' => function_exists('proc_open'),

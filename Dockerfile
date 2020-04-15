@@ -9,9 +9,9 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PHP_VERSION 7.2
 # `apt-cache madison php7.2` to list available versions
 ENV PHP_MINOR_VERSION 7.2.29-1+ubuntu18.04.1+deb.sury.org+1
-ENV COMPOSER_VERSION 1.10.1
+ENV COMPOSER_VERSION 1.10.5
 # `apt-cache madison nginx` to list available versions
-ENV NGINX_VERSION 1.17.9-1~bionic
+ENV NGINX_VERSION 1.17.10-1~bionic
 
 # Install Craft Requirements
 RUN set -x \
@@ -45,6 +45,7 @@ RUN set -x \
         php${PHP_VERSION}-mysql=${PHP_MINOR_VERSION} \
         php${PHP_VERSION}-opcache=${PHP_MINOR_VERSION} \
         php${PHP_VERSION}-readline=${PHP_MINOR_VERSION} \
+        php${PHP_VERSION}-soap=${PHP_MINOR_VERSION} \
         php${PHP_VERSION}-xml=${PHP_MINOR_VERSION} \
         php${PHP_VERSION}-zip=${PHP_MINOR_VERSION} \
         php-imagick \

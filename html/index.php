@@ -16,9 +16,19 @@
 
         <h4>Congratulations!</h4>
 
-        <p>You have successfully deployed a <strong>docker</strong> container running our <strong>NGINX</strong> with <strong>PHP-FPM 7.x</strong> image</p>
+        <p>You have successfully deployed a <strong>docker</strong> container running <strong>NGINX</strong> and <strong>PHP-FPM 7.x</strong>.</p>
 
-        <p><strong>NGINX</strong><br><strong>PHP-FPM: </strong>v<?php echo phpversion(); ?><br><strong>HOSTNAME: </strong><?php echo gethostname(); ?><br><strong>WEB ROOT: </strong><?php echo $_ENV['DOCUMENT_ROOT'] ?></p>
+        <p>
+
+          <strong>SERVER: </strong><?php echo isset($_SERVER['SERVER_SOFTWARE']) ? $_SERVER['SERVER_SOFTWARE'] : 'NGINX'; ?><br>
+
+          <strong>PHP-FPM: </strong>v<?php echo phpversion(); ?><br>
+
+          <strong>HOSTNAME: </strong><?php echo gethostname(); ?><br>
+
+          <strong>WEB ROOT: </strong><?php echo $_ENV['DOCUMENT_ROOT'] ?>
+
+        </p>
 
         <a style="text-decoration:none" href="checkit.php">Check Craft 3 server requirements.</a>
 
