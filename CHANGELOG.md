@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1 - 2020-04-19
+
+- Update PHP to 7.2.30
+
 ## 0.5.0 - 2020-04-14
 
 - Update Nginx to 1.17.10
