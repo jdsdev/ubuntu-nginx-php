@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0 - 2020-10-28
+
+- Update PHP to 7.2.34-4
+- Update Nginx to 1.19.4
+- Update Composer to 2.0.2
+- Remove hirak/prestissimo as Composer 2.x supports parallel downloads by default
+
 ## 0.5.6 - 2020-10-01
 
 - Update PHP to 7.2.34

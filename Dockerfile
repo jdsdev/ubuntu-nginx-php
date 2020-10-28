@@ -8,10 +8,10 @@ ENV DEBIAN_FRONTEND noninteractive
 # NOTE: When updating PHP_VERSION, update in supervisord.conf and nginx.conf as well
 ENV PHP_VERSION 7.2
 # `apt-cache madison php7.2` to list available versions
-ENV PHP_MINOR_VERSION 7.2.34-1+ubuntu18.04.1+deb.sury.org+1
-ENV COMPOSER_VERSION 1.10.13
+ENV PHP_MINOR_VERSION 7.2.34-4+ubuntu18.04.1+deb.sury.org+1
+ENV COMPOSER_VERSION 2.0.2
 # `apt-cache madison nginx` to list available versions
-ENV NGINX_VERSION 1.19.3-1~bionic
+ENV NGINX_VERSION 1.19.4-1~bionic
 
 # Install Craft Requirements
 RUN set -x \
@@ -60,12 +60,11 @@ RUN set -x \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install Composer and Prestissimo to speed up Composer installs
+# Install Composer
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
   && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
   && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" \
   && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} \
-  && composer global require hirak/prestissimo --no-plugins --no-interaction --no-scripts \
   && rm -rf /tmp/*
 
 # Nginx config
