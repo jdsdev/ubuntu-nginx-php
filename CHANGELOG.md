@@ -1,5 +1,11 @@
 # Changelog
 
+# 0.6.1 - 2020-10-28
+
+- Update PHP to 7.2.34-8
+- Update Nginx to 1.19.5
+- Update Composer to 2.0.7
+
 ## 0.6.0 - 2020-10-28
 
 - Update PHP to 7.2.34-4
