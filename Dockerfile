@@ -5,11 +5,14 @@ LABEL maintainer="jonathan@jdsdev.com"
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
-# NOTE: When updating PHP_VERSION, update in supervisord.conf and nginx.conf as well
-ENV PHP_VERSION 7.2
-# `apt-cache madison php7.2` to list available versions
-ENV PHP_MINOR_VERSION 7.2.34-8+ubuntu18.04.1+deb.sury.org+1
-ENV COMPOSER_VERSION 2.0.7
+# NOTE: When updating PHP_VERSION, update the following as well:
+# ./conf/supervisor/supervisord.conf
+# ./conf/nginx/conf.d/default.conf
+# ./php/{php_version}
+ENV PHP_VERSION 7.4
+# `apt-cache madison php7.4` to list available versions
+ENV PHP_MINOR_VERSION 7.4.13-1+ubuntu18.04.1+deb.sury.org+1
+ENV COMPOSER_VERSION 2.0.8
 # `apt-cache madison nginx` to list available versions
 ENV NGINX_VERSION 1.19.5-1~bionic
 
