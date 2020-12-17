@@ -14,7 +14,7 @@ ENV PHP_VERSION 7.4
 ENV PHP_MINOR_VERSION 7.4.13-1+ubuntu18.04.1+deb.sury.org+1
 ENV COMPOSER_VERSION 2.0.8
 # `apt-cache madison nginx` to list available versions
-ENV NGINX_VERSION 1.19.5-1~bionic
+ENV NGINX_VERSION 1.19.6-1~bionic
 
 # Install Craft Requirements
 RUN set -x \

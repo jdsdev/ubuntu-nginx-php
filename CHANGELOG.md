@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.0.1 - 2020-12-17
+
+- Fix PHP config files to reflect PHP update..
+- Update Nginx to 1.19.6
+
 # 1.0.0 - 2020-12-09
 
 - Update PHP to 7.4.13
