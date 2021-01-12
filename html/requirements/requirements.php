@@ -6,10 +6,10 @@
 /** @var RequirementsChecker $this */
 $requirements = array(
     array(
-        'name' => 'PHP 7.0+',
+        'name' => 'PHP 7.4+',
         'mandatory' => true,
-        'condition' => version_compare(PHP_VERSION, '7.0.0', '>='),
-        'memo' => 'PHP 7.0 or higher is required.',
+        'condition' => PHP_VERSION_ID >= 70400,
+        'memo' => 'PHP 7.4 or later is required.',
     ),
 );
 
@@ -196,6 +196,12 @@ $requirements = array_merge($requirements, array(
         'mandatory' => false,
         'condition' => ini_get('allow_url_fopen'),
         'memo' => '<a rel="noopener" target="_blank" href="https://secure.php.net/manual/en/filesystem.configuration.php#ini.allow-url-fopen">allow_url_fopen</a> must be enabled in your PHP configuration for Plugin Store and updating operations.',
+    ),
+    array(
+        'name' => 'ignore_user_abort()',
+        'mandatory' => false,
+        'condition' => function_exists('ignore_user_abort'),
+        'memo' => '<a rel="noopener" target="_blank" href="https://www.php.net/manual/en/function.ignore-user-abort.php">ignore_user_abort()</a> must be enabled in your PHP configuration for the native web-based queue runner to work.',
     ),
 ));
 
