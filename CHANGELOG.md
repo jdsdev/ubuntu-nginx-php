@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.0.2 - 2021-1-12
+
+- Minor documentation updates
+- Update Craft server check
+- Update PHP configuration based on default PHP 7.4 configuration
+
 # 1.0.1 - 2020-12-17
 
 - Fix PHP config files to reflect PHP update..

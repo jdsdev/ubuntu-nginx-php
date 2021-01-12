@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # NOTE: When updating PHP_VERSION, update the following as well:
 # ./conf/supervisor/supervisord.conf
 # ./conf/nginx/conf.d/default.conf
-# ./php/{php_version}
+# ./php/{php_version}/*
 ENV PHP_VERSION 7.4
 # `apt-cache madison php7.4` to list available versions
 ENV PHP_MINOR_VERSION 7.4.13-1+ubuntu18.04.1+deb.sury.org+1
