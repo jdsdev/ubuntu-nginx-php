@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.0.3 - 2021-1-28
+
+- Update PHP to 7.4.14
+- Update Composer to 2.0.9
+
 # 1.0.2 - 2021-1-12
 
 - Minor documentation updates
