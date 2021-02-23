@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.0.4 - 2021-2-23
+
+- Update PHP to 7.4.15-7
+- Update Nginx to 1.19.7
+- Update Composer to 2.0.10
+
 # 1.0.3 - 2021-1-28
 
 - Update PHP to 7.4.14
