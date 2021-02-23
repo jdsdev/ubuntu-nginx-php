@@ -6,19 +6,19 @@
 
 This is a Dockerfile to build an Ubuntu based container for NGINX and PHP-FPM. The container includes Composer and some settings optimization for Craft CMS and Craft Commerce. The default site contains [Craft Server Check](https://github.com/craftcms/server-check).
 
-| Docker Tag | Ubuntu Version | NGINX Version | PHP Version | Composer Version |
-|------------|----------------|---------------|-------------|------------------|
-| latest     | 18.04          | 1.19.6        | 7.4.14      | 2.0.9            |
-| 1.0.3      | 18.04          | 1.19.6        | 7.4.14      | 2.0.9            |
-| 1.0.2      | 18.04          | 1.19.6        | 7.4.13      | 2.0.8            |
-| 1.0.1      | 18.04          | 1.19.6        | 7.4.13      | 2.0.8            |
-| 1.0.0      | 18.04          | 1.19.5        | 7.4.13      | 2.0.8            |
+| Docker Tag | NGINX Version | PHP Version | Composer Version |
+|------------|---------------|-------------|------------------|
+| latest     | 1.19.6        | 7.4.14      | 2.0.9            |
+| 1.0.3      | 1.19.6        | 7.4.14      | 2.0.9            |
+| 1.0.2      | 1.19.6        | 7.4.13      | 2.0.8            |
+| 1.0.1      | 1.19.6        | 7.4.13      | 2.0.8            |
+| 1.0.0      | 1.19.5        | 7.4.13      | 2.0.8            |
 
 #### Final Version with PHP 7.2
 
-| Docker Tag | Ubuntu Version | NGINX Version | PHP Version | Composer Version |
-|------------|----------------|---------------|-------------|------------------|
-| 0.6.1      | 18.04          | 1.19.5        | 7.2.34      | 2.0.7            |
+| Docker Tag | NGINX Version | PHP Version | Composer Version |
+|------------|---------------|-------------|------------------|
+| 0.6.1      | 1.19.5        | 7.2.34      | 2.0.7            |
 
 ## Getting Started
 
