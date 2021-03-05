@@ -1,5 +1,12 @@
 # Changelog
 
+# 1.1.0 - 2021-3-5
+
+- Update PHP to 7.4.16
+- Remove PHP minor version pinning again
+  - Previous minor versions haven't been stored for a while breaking old builds
+  - Updates will still be tracked here and new images will be built for new PHP releases
+
 # 1.0.5 - 2021-2-24
 
 - Update Composer to 2.0.11
