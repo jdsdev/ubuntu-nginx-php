@@ -99,6 +99,18 @@ $requirements = array_merge($requirements, array(
         'memo' => 'The <a rel="noopener" target="_blank" href="http://php.net/manual/en/book.image.php">GD</a> or <a rel="noopener" target="_blank" href="http://php.net/manual/en/book.imagick.php">ImageMagick</a> extension is required, however ImageMagick is recommended as it adds animated GIF support, and preserves 8-bit and 24-bit PNGs during image transforms.'
     ),
     array(
+        'name' => 'GD extension',
+        'mandatory' => false,
+        'condition' => extension_loaded('gd'),
+        'memo' => '<a rel="noopener" target="_blank" href="http://php.net/manual/en/book.image.php">GD</a> extension is enabled.'
+    ),
+    array(
+        'name' => 'ImageMagick extension',
+        'mandatory' => false,
+        'condition' => (extension_loaded('imagick') && !empty(\Imagick::queryFormats())),
+        'memo' => '<a rel="noopener" target="_blank" href="http://php.net/manual/en/book.imagick.php">ImageMagick</a> extension is enabled.'
+    ),
+    array(
         'name' => 'OpenSSL extension',
         'mandatory' => true,
         'condition' => extension_loaded('openssl'),
@@ -202,6 +214,12 @@ $requirements = array_merge($requirements, array(
         'mandatory' => false,
         'condition' => function_exists('ignore_user_abort'),
         'memo' => '<a rel="noopener" target="_blank" href="https://www.php.net/manual/en/function.ignore-user-abort.php">ignore_user_abort()</a> must be enabled in your PHP configuration for the native web-based queue runner to work.',
+    ),
+    array(
+        'name' => 'Redis Extension',
+        'mandatory' => false,
+        'condition' => extension_loaded('redis'),
+        'memo' => 'The <a rel="noopener" target="_blank" href="https://github.com/phpredis/phpredis">Redis</a> extension is required for Redis caching.',
     ),
 ));
 

@@ -51,8 +51,8 @@ RUN set -x \
         php${PHP_VERSION}-soap \
         php${PHP_VERSION}-xml \
         php${PHP_VERSION}-zip \
-        php-imagick \
-        php-redis \
+        php${PHP_VERSION}-imagick \
+        php${PHP_VERSION}-redis \
     && mkdir -p /run/php \
     && chown www-data.www-data /run/php \
     && pip install supervisor supervisor-stdout \

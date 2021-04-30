@@ -1,5 +1,13 @@
 # Changelog
 
+# 1.1.2 - 2021-4-30
+
+- Fix Redis and Imagick installation error introduced in 1.0.4 as a result of changed package names
+  - Replace php-redis with php7.4-redis
+  - Replace php-imagick with php7.4-imagick
+- Update server check to check specifically whether GD or Imagick is installed
+- Update server check to check whether Redis is installed
+
 # 1.1.1 - 2021-4-27
 
 - Update Nginx to 1.19.10
