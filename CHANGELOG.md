@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.2.0 - 2021-5-4
+
+- Update PHP to 7.4.18
+- Restore PHP minor version pinning _again_
+  - Docker and Docker Hub don't always update PHP version if it is not explicitly declared
+
 # 1.1.2 - 2021-4-30
 
 - Fix Redis and Imagick installation error introduced in 1.0.4 as a result of changed package names
