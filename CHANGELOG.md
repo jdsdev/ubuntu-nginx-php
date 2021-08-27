@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.2.3 - 2021-8-19
+
+- Update PHP to 7.4.23
+- Update Composer to 2.1.6
+
 # 1.2.2 - 2021-7-16
 
 - Update PHP to 7.4.21
