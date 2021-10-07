@@ -11,8 +11,8 @@ ENV DEBIAN_FRONTEND noninteractive
 # ./php/{php_version}/*
 ENV PHP_VERSION 7.4
 # `apt-cache madison php7.4` to list available minor versions
-ENV PHP_MINOR_VERSION 7.4.23-1+ubuntu18.04.1+deb.sury.org+1
-ENV COMPOSER_VERSION 2.1.8
+ENV PHP_MINOR_VERSION 7.4.24-1+ubuntu18.04.1+deb.sury.org+1
+ENV COMPOSER_VERSION 2.1.9
 # `apt-cache madison nginx` to list available versions
 ENV NGINX_VERSION 1.21.3-1~bionic
 
