@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # ./php/{php_version}/*
 ENV PHP_VERSION 7.4
 # `apt-cache madison php7.4` to list available minor versions
-ENV PHP_MINOR_VERSION 7.4.24-1+ubuntu18.04.1+deb.sury.org+1
+ENV PHP_MINOR_VERSION 7.4.25-1+ubuntu18.04.1+deb.sury.org+1
 ENV COMPOSER_VERSION 2.1.9
 # `apt-cache madison nginx` to list available versions
 ENV NGINX_VERSION 1.21.3-1~bionic
@@ -55,7 +55,7 @@ RUN set -x \
         php${PHP_VERSION}-redis \
     && mkdir -p /run/php \
     && chown www-data.www-data /run/php \
-    && pip install supervisor supervisor-stdout \
+    && pip install --no-cache-dir supervisor supervisor-stdout \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
     && apt-get autoremove --purge -y \
         software-properties-common \

@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.2.6 - 2021-10-25
+
+- Update PHP to 7.4.25
+- Prevent pip from generating a local cache
+
 # 1.2.5 - 2021-10-07
 
 - Update PHP to 7.4.24
