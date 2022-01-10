@@ -11,10 +11,10 @@ ENV DEBIAN_FRONTEND noninteractive
 # ./php/{php_version}/*
 ENV PHP_VERSION 7.4
 # `apt-cache madison php7.4` to list available minor versions
-ENV PHP_MINOR_VERSION 7.4.26-1+ubuntu18.04.1+deb.sury.org+2
-ENV COMPOSER_VERSION 2.1.12
+ENV PHP_MINOR_VERSION 7.4.27-1+ubuntu18.04.1+deb.sury.org+1
+ENV COMPOSER_VERSION 2.2.4
 # `apt-cache madison nginx` to list available versions
-ENV NGINX_VERSION 1.21.4-1~bionic
+ENV NGINX_VERSION 1.21.5-1~bionic
 
 # Install Craft Requirements
 RUN set -x \
