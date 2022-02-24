@@ -1,10 +1,17 @@
 # Changelog
 
+# 1.2.10 - 2021-2-24
+
+- Update PHP to 7.4.28
+- Update Nginx to 1.21.6
+- Update Composer to 2.2.6
+
 # 1.2.9 - 2021-1-10
 
 - Update PHP to 7.4.27
 - Update Nginx to 1.21.5
 - Update Composer to 2.2.4
+  - `allow-plugins` in now required: https://getcomposer.org/doc/06-config.md#allow-plugins
 
 # 1.2.8 - 2021-11-29
 
