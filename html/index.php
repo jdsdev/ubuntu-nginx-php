@@ -16,7 +16,7 @@
 
         <h4>Congratulations!</h4>
 
-        <p>You have successfully deployed a <strong>docker</strong> container running <strong>NGINX</strong> and <strong>PHP-FPM 7.x</strong>.</p>
+        <p>You have successfully deployed a <strong>docker</strong> container running <strong>NGINX</strong> and <strong>PHP-FPM 8.x</strong>.</p>
 
         <p>
 
@@ -30,7 +30,7 @@
 
         </p>
 
-        <a style="text-decoration:none" href="checkit.php">Check Craft 3 server requirements.</a>
+        <a style="text-decoration:none" href="checkit.php">Check Craft 4 server requirements.</a>
 
       </div>
     </div>

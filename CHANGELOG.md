@@ -1,17 +1,24 @@
 # Changelog
 
-# 1.2.11 - 2021-5-4
+# 2.0.0 - 2022-5-25
+
+- Update PHP to 8.1.6
+- Add bcmath extension
+- Update server check to check requirements for Craft 4
+- Move PHP configuration changes back into Dockerfile to simplify future updates
+
+# 1.2.11 - 2022-5-4
 
 - Update PHP to 7.4.29
 - Update Composer to 2.3.5
 
-# 1.2.10 - 2021-2-24
+# 1.2.10 - 2022-2-24
 
 - Update PHP to 7.4.28
 - Update Nginx to 1.21.6
 - Update Composer to 2.2.6
 
-# 1.2.9 - 2021-1-10
+# 1.2.9 - 2022-1-10
 
 - Update PHP to 7.4.27
 - Update Nginx to 1.21.5
