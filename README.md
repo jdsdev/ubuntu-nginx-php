@@ -8,7 +8,8 @@ This is a Dockerfile to build an Ubuntu based container for NGINX and PHP-FPM. T
 
 | Docker Tag | NGINX Version | PHP Version | Composer Version |
 |------------|---------------|-------------|------------------|
-| latest     | 1.21.6        | 8.1.6       | 2.3.5            |
+| latest     | 1.23.0        | 8.1.7       | 2.3.7            |
+| 2.0.1      | 1.23.0        | 8.1.7       | 2.3.7            |
 | 2.0.0      | 1.21.6        | 8.1.6       | 2.3.5            |
 
 #### Final Version with PHP 7.4
@@ -35,9 +36,6 @@ Run the container:
 
 ```
 docker run -p 80:80 -it binaryorigami/ubuntu-nginx-php
-
-# Specify platform for M1 Macs
-docker run -p 80:80 -it --platform=linux/x86_64 binaryorigami/ubuntu-nginx-php
 ```
 
 Default web root found at:
