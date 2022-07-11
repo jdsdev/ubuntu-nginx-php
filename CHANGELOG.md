@@ -1,5 +1,10 @@
 # Changelog
 
+# 2.0.2 - 2022-7-11
+
+- Update PHP to 8.1.8
+- Update Composer to 2.3.9
+
 # 2.0.1 - 2022-6-23
 
 - Update PHP to 8.1.7

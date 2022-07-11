@@ -8,7 +8,8 @@ This is a Dockerfile to build an Ubuntu based container for NGINX and PHP-FPM. T
 
 | Docker Tag | NGINX Version | PHP Version | Composer Version |
 |------------|---------------|-------------|------------------|
-| latest     | 1.23.0        | 8.1.7       | 2.3.7            |
+| latest     | 1.23.0        | 8.1.8       | 2.3.9            |
+| 2.0.2      | 1.23.0        | 8.1.8       | 2.3.9            |
 | 2.0.1      | 1.23.0        | 8.1.7       | 2.3.7            |
 | 2.0.0      | 1.21.6        | 8.1.6       | 2.3.5            |
 
