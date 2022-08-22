@@ -1,5 +1,11 @@
 # Changelog
 
+# 2.0.3 - 2022-8-22
+
+- Update PHP to 8.1.9
+- Update Nginx to 1.23.1
+- Update Composer to 2.4.1
+
 # 2.0.2 - 2022-7-11
 
 - Update PHP to 8.1.8
