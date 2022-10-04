@@ -1,5 +1,13 @@
 # Changelog
 
+# 2.1.0 - 2022-10-3
+
+- Run supervisor as www-data
+- Update PHP to 8.1.11
+- Update Composer to 2.4.2
+- Fix PHP nginx cache settings
+- Add more fine grained cache control for other file types
+
 # 2.0.3 - 2022-8-22
 
 - Update PHP to 8.1.9

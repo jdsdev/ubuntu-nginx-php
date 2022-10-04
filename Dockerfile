@@ -11,8 +11,8 @@ ENV DEBIAN_FRONTEND noninteractive
 # ./php/{php_version}/*
 ENV PHP_VERSION 8.1
 # `apt-cache madison php8.1` to list available minor versions
-ENV PHP_MINOR_VERSION 8.1.9-1+ubuntu18.04.1+deb.sury.org+1
-ENV COMPOSER_VERSION 2.4.1
+ENV PHP_MINOR_VERSION 8.1.11-1+ubuntu18.04.1+deb.sury.org+2
+ENV COMPOSER_VERSION 2.4.2
 # `apt-cache madison nginx` to list available versions
 ENV NGINX_VERSION 1.23.1-1~bionic
 
@@ -52,8 +52,6 @@ RUN set -x \
         php${PHP_VERSION}-zip=${PHP_MINOR_VERSION} \
         php${PHP_VERSION}-imagick \
         php${PHP_VERSION}-redis \
-    && mkdir -p /run/php \
-    && chown www-data.www-data /run/php \
     && pip install --no-cache-dir supervisor supervisor-stdout \
     && printf "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
     && apt-get autoremove --purge -y \
@@ -108,6 +106,17 @@ COPY html /usr/share/nginx/html
 COPY start.sh /start.sh
 RUN chmod 755 /start.sh
 
-EXPOSE 80
+RUN chown -R www-data.www-data /var/cache/nginx/ \
+    && chown -R www-data.www-data /var/log/nginx/ \
+    && chown -R www-data.www-data /usr/share/nginx/ \
+    && chown -R www-data.www-data /etc/nginx \
+    && touch /var/run/nginx.pid \
+    && chown -R www-data.www-data /var/run/nginx.pid \
+    && touch /var/log/php-fpm.log \
+    && chown -R www-data.www-data /var/log/php-fpm.log
 
-CMD ["/start.sh"]
+# run container as the www-data user
+USER www-data
+
+EXPOSE 80
+ENTRYPOINT ["/start.sh"]
