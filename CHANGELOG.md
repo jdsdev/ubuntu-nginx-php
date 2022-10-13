@@ -1,6 +1,21 @@
 # Changelog
 
-# 2.1.0 - 2022-10-3
+# 3.0.0 - 2022-10-13
+
+> **BREAKING CHANGES**
+> - Run superviser as www-data
+> - Change nginx port to 8080
+
+- Run supervisor with exec
+- Update docs and cleanup code
+- Update PHP to 8.1.11
+- Update Composer to 2.4.2
+- Fix PHP nginx cache settings
+- Add more fine grained cache control for other file types
+
+## 2.1.0 - 2022-10-3
+
+> **NOTE:** 3.0.0 fixes several bugs in this release.
 
 - Run supervisor as www-data
 - Update PHP to 8.1.11

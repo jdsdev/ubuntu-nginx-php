@@ -106,17 +106,17 @@ COPY html /usr/share/nginx/html
 COPY start.sh /start.sh
 RUN chmod 755 /start.sh
 
-RUN chown -R www-data.www-data /var/cache/nginx/ \
-    && chown -R www-data.www-data /var/log/nginx/ \
-    && chown -R www-data.www-data /usr/share/nginx/ \
-    && chown -R www-data.www-data /etc/nginx \
+RUN chown -R www-data:www-data /var/cache/nginx \
+    && chown -R www-data:www-data /var/log/nginx \
+    && chown -R www-data:www-data /usr/share/nginx \
+    && chown -R www-data:www-data /etc/nginx \
     && touch /var/run/nginx.pid \
-    && chown -R www-data.www-data /var/run/nginx.pid \
+    && chown -R www-data:www-data /var/run/nginx.pid \
     && touch /var/log/php-fpm.log \
-    && chown -R www-data.www-data /var/log/php-fpm.log
+    && chown -R www-data:www-data /var/log/php-fpm.log
 
 # run container as the www-data user
 USER www-data
 
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["/start.sh"]
