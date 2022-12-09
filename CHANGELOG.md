@@ -1,5 +1,11 @@
 # Changelog
 
+# 3.0.1 - 2022-12-9
+
+- Update PHP to 8.1.13
+- Update Nginx to 1.23.2
+- Update Composer to 2.4.4
+
 # 3.0.0 - 2022-10-13
 
 > **BREAKING CHANGES**
